@@ -1,0 +1,6 @@
+tools/transcribe-groq.py
+raw/audio/
+.claude/
+node_modules/
+quartz/public/
+quartz/.quartz-cache/
