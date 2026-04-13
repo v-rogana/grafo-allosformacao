@@ -1,0 +1,124 @@
+@use "../../styles/variables.scss" as *;
+
+.graph {
+  & > h3 {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  & > .graph-outer {
+    border-radius: 5px;
+    border: 1px solid var(--lightgray);
+    background-color: var(--light);
+    box-sizing: border-box;
+    height: 300px;
+    margin: 0.5em 0;
+    position: relative;
+    overflow: hidden;
+
+    & > .global-graph-icon {
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--dark);
+      opacity: 0.5;
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      padding: 0.2rem;
+      margin: 0.3rem;
+      top: 0;
+      right: 0;
+      border-radius: 4px;
+      background-color: transparent;
+      transition: background-color 0.5s ease;
+      cursor: pointer;
+      &:hover {
+        background-color: var(--lightgray);
+      }
+    }
+  }
+
+  & > .graph-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0.3rem 0;
+    font-size: 0.75rem;
+    color: var(--darkgray);
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .legend-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .legend-maxima {
+      background-color: #d4a030;
+    }
+    .legend-clinica {
+      background-color: #5b8c6e;
+    }
+    .legend-autor {
+      background-color: #8e7cc3;
+    }
+    .legend-abordagem {
+      background-color: #c27a5a;
+    }
+
+    [saved-theme="dark"] & {
+      .legend-maxima {
+        background-color: #e8b84b;
+      }
+      .legend-clinica {
+        background-color: #7ead8f;
+      }
+      .legend-autor {
+        background-color: #a894d6;
+      }
+      .legend-abordagem {
+        background-color: #d4936f;
+      }
+    }
+  }
+
+  & > .global-graph-outer {
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100%;
+    backdrop-filter: blur(4px);
+    display: none;
+    overflow: hidden;
+
+    &.active {
+      display: inline-block;
+    }
+
+    & > .global-graph-container {
+      border: 1px solid var(--lightgray);
+      background-color: var(--light);
+      border-radius: 5px;
+      box-sizing: border-box;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 80vh;
+      width: 80vw;
+
+      @media all and not ($desktop) {
+        width: 90%;
+      }
+    }
+  }
+}
